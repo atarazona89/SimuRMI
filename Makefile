@@ -27,3 +27,15 @@ clean:
 	mkdir bin/Servidores
 	mkdir bin/Implement
 	mkdir bin/Interfaces
+
+commit:
+	git add src/*
+	git add bin/*
+	git add Makefile
+	git commit
+
+push:
+	git push origin master
+
+pull:
+	git pull origin master
