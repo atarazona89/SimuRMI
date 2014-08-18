@@ -1,24 +1,26 @@
 make:
+	javac src/Servidores/*.java src/Despachadores/*.java src/Interfaces/*.java src/Interfaces/*.java src/Implement/*.java src/Clientes/*.java
 	make impl
 	make interf
 	make client
+	make desp
 	make serv
 
 serv:
-	javac src/Servidores
-	mv src/Servidores/*.clas bin/Servidores
+	mv src/Servidores/*.class bin/Servidores
 
 client:
-	javac src/Clientes
-	mv src/Clientes/*.clas bin/Clientes
+	mv src/Clientes/*.class bin/Clientes
 
 impl:
-	javac src/Implement
-	mv src/Implement/*.clas bin/Implement
+	mv src/Implement/*.class bin/Implement
 
 interf:
-	javac src/Interfaces
-	mv src/Interfacess/*.clas bin/Interfaces
+	mv src/Interfaces/*.class bin/Interfaces
+
+desp:
+	mv src/Despachadores/*.class bin/Despachadores
+
 
 clean:
 	rm -r bin
@@ -27,6 +29,7 @@ clean:
 	mkdir bin/Servidores
 	mkdir bin/Implement
 	mkdir bin/Interfaces
+	mkdir bin/Despachadores
 
 commit:
 	git add src/*
