@@ -43,6 +43,11 @@ public class Despachador {
 		return entero;
 	}
 
+	/**
+	 * Maneja la selección del usuario.
+	 * @param menu la opción elegida por el usario en el menú anterior
+	 * @return 1 si la elección fue procesada con éxito. 0 si la opción no fue válida. -1 en caso de otros errores.
+	 */
 	private static int procesarSeleccion(int menu) {
 		if (menu >= 0 && menu <= 3) {
 			switch (menu) {
@@ -52,8 +57,13 @@ public class Despachador {
 				} catch (RemoteException e) {
 					System.out.println("Error al agregar servicio");
 					e.printStackTrace();
+				} catch (Exception e) {
+					System.out.println("Excepción no prevista");
+					e.printStackTrace();
+				} finally {
+					return -1;
 				}
-				return 1;
+
 			case 2:
 				eliminarServicio();
 				return 1;
