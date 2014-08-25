@@ -1,14 +1,8 @@
 package Interfaces;
 
-import java.util.ArrayList;
+
 
 public interface Servicio extends java.rmi.Remote{
-	ArrayList<Estadistica> log = null;
-	
-	class Estadistica{
-		String peticion;
-		boolean termiada;
-	}
 	
 	String host ="localhost";
 	int port = 10000;
@@ -18,19 +12,18 @@ public interface Servicio extends java.rmi.Remote{
 	 * @return String con el IP del host.
 	 */
 	public String getHost();
-	
-	/**
-	 * Puerto de escucha del servicio.
-	 * @return int con el valor del puerto por donde está escuchando el servicio ofrecido.
-	 */
-	public int getPort();
-	
+		
 	/**
 	 * Tipo del servicio de acuerdo con la numeración codificada.
 	 * @return int con el valor que haya sido codificado como tipo.
 	 */
 	public int getTipo();
 	
+	
+	/**
+	 * 
+	 * @return Descripcion del Servicio.
+	 */
 	public String toString();
 	
 	/**
@@ -41,7 +34,7 @@ public interface Servicio extends java.rmi.Remote{
 	/**
 	 * Imprime el menú de los servicios prestados.
 	 */
-	void prntSercices();
+	void prntServices();
 	
 	/**
 	 * Función que ejecuta los diferentes servicios prestados por la instancia de Servicio.
@@ -49,7 +42,10 @@ public interface Servicio extends java.rmi.Remote{
 	 * @param args Argumentos pasados al Servicio.
 	 * @return Reultado de la prestación del servicio.
 	 */
-	Object exec(int Tipo, Object[] args);
+	Object exec();
+	
+	
+	void registrar(String despIp);
 	
 
 }
